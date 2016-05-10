@@ -1,0 +1,7 @@
+{
+  "link": {
+    "bashrc": "~/.bashrc",
+    "vimrc": "~/.vimrc",
+    "tmux.conf": "~/.tmux.conf"
+  }
+}
