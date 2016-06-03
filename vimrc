@@ -19,6 +19,9 @@ set autowrite     " Automatically :write before running commands
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
+" Show complete command completion menu
+set wildmenu
+
 " Clear the last search
 nnoremap <CR> :noh<CR><CR>
 
@@ -30,6 +33,12 @@ nnoremap <C-l> <C-w>l
 
 " Easy paste/nopaste toggle
 nnoremap <Leader>p :set paste!<CR>
+" Open file in same directory as current buffer
+nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" Tabs and such
+nnoremap <Leader>w :bd<CR>
+nnoremap <Leader>W :BD<CR>
+nnoremap <Leader>t :tabnew<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Additional sources

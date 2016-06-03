@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 # Copyright (C) 2015 Vibhav Pant <vibhavp@gmail.com>
 # This program is free software; you can redistribute it and/or modify
@@ -15,28 +15,31 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+from __future__ import absolute_import
 import json
 import os
 import shutil
 from sys import stderr
 import argparse
+import sys
+from io import open
 
 
 def ask_user(prompt):
-    valid = {"yes":True, 'y':True, '':True, "no":False, 'n':False}
+    valid = {u"yes":True, u'y':True, u'':True, u"no":False, u'n':False}
     while True:
-        print(prompt+" ",end="")
-        choice = input().lower()
+        print prompt+u" ",; sys.stdout.write(u"")
+        choice = raw_input().lower()
         if choice in valid:
             return valid[choice]
         else:
-            print("Enter a correct choice.", file=stderr)
+            print >>stderr, u"Enter a correct choice."
 
 
 def create_directory(path):
     exp = os.path.expanduser(path)
     if (not os.path.isdir(exp)):
-        print(exp+" doesnt exist, creating.")
+        print exp+u" doesnt exist, creating."
         os.makedirs(exp)
 
 
@@ -45,16 +48,16 @@ def create_symlink(src, dest, replace):
     src = os.path.abspath(src)
     if os.path.exists(dest):
         if os.path.islink(dest) and os.readlink(dest) == src:
-            print("Skipping existing {0} -> {1}".format(dest, src))
+            print u"Skipping existing {0} -> {1}".format(dest, src)
             return
-        elif replace or ask_user(dest+" exists, delete it? [Y/n]"):
+        elif replace or ask_user(dest+u" exists, delete it? [Y/n]"):
             if os.path.isfile(dest):
                 os.remove(dest)
             else:
                 shutil.rmtree(dest)
         else:
             return
-    print("Linking {0} -> {1}".format(dest, src))
+    print u"Linking {0} -> {1}".format(dest, src)
     os.symlink(src, dest)
 
 
@@ -62,14 +65,14 @@ def copy_path(src, dest):
     dest = os.path.expanduser(dest)
     src = os.path.abspath(src)
     if os.path.exists(dest):
-        if ask_user(dest+ " exists, delete it? [Y/n]"):
+        if ask_user(dest+ u" exists, delete it? [Y/n]"):
             if os.path.isfile(dest):
                 os.remove(dest)
             else:
                 shutil.rmtree(dest)
         else:
             return
-    print("Copying {0} -> {1}".format(src, dest))
+    print u"Copying {0} -> {1}".format(src, dest)
     if os.path.isfile(src):
         shutil.copy(src, dest)
     else:
@@ -82,18 +85,18 @@ def run_command(command):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("config", help="the JSON file you want to use")
-    parser.add_argument("-r", "--replace", action="store_true",
-                        help="replace files/folders if they already exist")
+    parser.add_argument(u"config", help=u"the JSON file you want to use")
+    parser.add_argument(u"-r", u"--replace", action=u"store_true",
+                        help=u"replace files/folders if they already exist")
     args = parser.parse_args()
     js = json.load(open(args.config))
     os.chdir(os.path.expanduser(os.path.abspath(os.path.dirname(args.config))))
 
-    directories = js.get("directories")
-    links = js.get("link")
-    copy = js.get("copy")
-    commands = js.get("commands")
-    pacman = js.get("pacman")
+    directories = js.get(u"directories")
+    links = js.get(u"link")
+    copy = js.get(u"copy")
+    commands = js.get(u"commands")
+    pacman = js.get(u"pacman")
 
     if directories: [create_directory(path) for path in directories]
 
@@ -104,13 +107,13 @@ def main():
     if commands: [run_command(command) for command in commands]
 
     if pacman:
-        packages = ""
+        packages = u""
         for package in pacman:
-            packages += package + " "
+            packages += package + u" "
 
-        run_command("sudo pacman -S "+packages)
+        run_command(u"sudo pacman -S "+packages)
 
-    print("Done!")
+    print u"Done!"
 
-if __name__ == "__main__":
+if __name__ == u"__main__":
     main()
