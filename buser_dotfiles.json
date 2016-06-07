@@ -2,7 +2,11 @@
   "link": {
     "bashrc": "~/.bashrc",
     "vimrc": "~/.vimrc",
-    "tmux.conf": "~/.tmux.conf"
+    "tmux.conf": "~/.tmux.conf",
+    "zshrc": "~/.zshrc",
+    "buser_theme": "~/.oh-my-zsh/themes/buser.zsh-theme"
   },
-  "commands": ["sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""]
+  "pre_commands": ["sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\"",
+    "git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"],
+  "commands": ["vim +PluginInstall +qall"]
 }

@@ -96,7 +96,10 @@ def main():
     links = js.get(u"link")
     copy = js.get(u"copy")
     commands = js.get(u"commands")
+    pre_commands = js.get(u"pre_commands")
     pacman = js.get(u"pacman")
+
+    if pre_commands: [run_command(command) for command in pre_commands]
 
     if directories: [create_directory(path) for path in directories]
 
