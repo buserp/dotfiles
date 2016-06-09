@@ -21,6 +21,8 @@ set wildmenu      " Show complete command completion menu
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
+" Display all open buffers when there's only one tab
+let g:airline#extensions#tabline#enabled = 1
 
 " Clear the last search
 nnoremap <CR> :noh<CR><CR>
