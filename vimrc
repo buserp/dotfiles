@@ -35,9 +35,11 @@ nnoremap <C-l> <C-w>l
 
 " Easy paste/nopaste toggle
 nnoremap <Leader>p :set paste!<CR>
+
 " Open file in same directory as current buffer
 nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-" Tab and buffer movemenent
+
+" Tab and buffer management
 nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>W :BD<CR>
 nnoremap <Leader>t :tabnew<CR>
@@ -45,6 +47,12 @@ nnoremap <Leader>h :bp<CR>
 nnoremap <Leader>l :bn<CR>
 nnoremap <Leader>j gt
 nnoremap <Leader>k gT
+
+" Autoformat that sh*t
+nnoremap <Leader>f :FormatCode<CR>
+
+" Toggle Gundo
+nnoremap <Leader>u :GundoToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -57,6 +65,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 """"""""""""""""""""""""""""""""""""
+
 Plugin 'tpope/vim-commentary'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'vim-airline/vim-airline'
@@ -65,9 +74,16 @@ Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-eunuch'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'sjl/gundo.vim'
-Plugin 'google/vim-maktaba'
 Plugin 'google/vim-glaive'
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
 Plugin 'christoomey/vim-tmux-navigator'
+
+" Source local plugins
+if filereadable(glob("~/.vimrc.plugins"))
+    source ~/.vimrc.plugins
+endif
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 call glaive#Install() " glaive#Install() should go after call vundle#end()
