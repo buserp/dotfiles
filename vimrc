@@ -21,9 +21,6 @@ set wildmenu      " Show complete command completion menu
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
-" Display all open buffers when there's only one tab
-let g:airline#extensions#tabline#enabled = 1
-
 " Clear the last search
 nnoremap <CR> :noh<CR><CR>
 
@@ -88,6 +85,13 @@ endif
 call vundle#end()
 call glaive#Install() " glaive#Install() should go after call vundle#end()
 filetype plugin indent on    " required
+
+" Colorscheme stuff
+let g:airline#extensions#tabline#enabled = 1 " Display all buffers when there's only one tab open
+set t_Co=256 " Required for molokai to work with 256-color terminal
+set t_ut=    " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging
+colorscheme molokai
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Additional sources
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
