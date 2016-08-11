@@ -1,4 +1,6 @@
 let mapleader="\<Space>"
+set nocompatible
+filetype plugin indent on
 syntax on
 set number        " Turn line numbers on
 set mouse=a       " Enable the x-y tracking device
@@ -31,7 +33,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Easy paste/nopaste toggle
-nnoremap <Leader>p :set paste!<CR>
+nnoremap <Leader>P :set paste!<CR>
 
 " Open file in same directory as current buffer
 nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -45,52 +47,67 @@ nnoremap <Leader>l :bn<CR>
 nnoremap <Leader>j gt
 nnoremap <Leader>k gT
 
+" Searching
+nnoremap <Leader>\ :Ag 
+nnoremap <Leader>n :cnext<CR>
+nnoremap <Leader>p :cprev<CR>
+
 " Autoformat that sh*t
 nnoremap <Leader>f :FormatCode<CR>
 
 " Toggle Gundo
 nnoremap <Leader>u :GundoToggle<CR>
 
+" Toggle highlighting current column
+nnoremap <Leader>c :set cursorcolumn!<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible " be iMproved, required
-filetype off     " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 """"""""""""""""""""""""""""""""""""
 
-Plugin 'tpope/vim-commentary'
-Plugin 'qpkorr/vim-bufkill'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tomasr/molokai'
-Plugin 'tpope/vim-eunuch'
-Plugin 'itchyny/vim-haskell-indent'
-Plugin 'sjl/gundo.vim'
-Plugin 'google/vim-glaive'
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-commentary'
+Plug 'qpkorr/vim-bufkill'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tomasr/molokai'
+Plug 'tpope/vim-eunuch'
+Plug 'itchyny/vim-haskell-indent'
+Plug 'sjl/gundo.vim'
+Plug 'google/vim-glaive'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Source local plugins
 if filereadable(glob("~/.vimrc.plugins"))
     source ~/.vimrc.plugins
 endif
 
-" All of your Plugins must be added before the following line
-call vundle#end()
-call glaive#Install() " glaive#Install() should go after call vundle#end()
-filetype plugin indent on    " required
+call plug#end()
+call glaive#Install()
 
 " Colorscheme stuff
 let g:airline#extensions#tabline#enabled = 1 " Display all buffers when there's only one tab open
 set t_Co=256 " Required for molokai to work with 256-color terminal
 set t_ut=    " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging
 colorscheme molokai
+
+" The Silver Searcher
+" https://robots.thoughtbot.com/faster-grepping-in-vim
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Additional sources
