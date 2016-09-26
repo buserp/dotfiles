@@ -23,8 +23,11 @@ set wildmenu      " Show complete command completion menu
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
+" Use the system clipboard
+set clipboard=unnamedplus
+
 " Clear the last search
-nnoremap <CR> :noh<CR><CR>
+nnoremap <CR> :noh<CR>:pclose<CR><CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -61,6 +64,7 @@ nnoremap <Leader>u :GundoToggle<CR>
 " Toggle highlighting current column
 nnoremap <Leader>c :set cursorcolumn!<CR>
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -79,6 +83,7 @@ Plug 'google/vim-glaive'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Source local plugins
 if filereadable(glob("~/.vimrc.plugins"))
@@ -99,12 +104,6 @@ colorscheme molokai
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
 " bind \ (backward slash) to grep shortcut
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!

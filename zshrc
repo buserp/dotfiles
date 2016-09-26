@@ -4,6 +4,8 @@ TERM=xterm-256color
 
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="buser"
+# Easy-ass git commits
+alias c="git commit -am"
 
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
