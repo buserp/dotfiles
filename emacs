@@ -1,3 +1,10 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Source our local config, if available
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(if (file-exists-p "~/.emacs.local")
+    (load "~/.emacs.local"))
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (add-to-list
@@ -13,18 +20,20 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (tango-dark)))
  '(desktop-save-mode nil)
+ '(global-whitespace-mode t)
  '(haskell-interactive-popup-errors nil)
  '(ido-mode (quote both) nil (ido))
  '(package-selected-packages
    (quote
     (exec-path-from-shell magit haskell-mode evil-leader evil)))
+ '(whitespace-style (quote (face trailing tabs lines-tail empty)))
  '(xterm-mouse-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(whitespace-line ((t (:background "red" :foreground "yellow")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Paul's configuration section!!!
@@ -79,9 +88,10 @@
 ;; Aesthetics
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Set default font
-(set-face-attribute 'default nil :font "Menlo-14" )
-(set-frame-font "Menlo-14" nil t)
+;; Set font on Mac OS X
+(if (string= "darwin" system-type)
+    ((set-face-attribute 'default nil :font "Menlo-14" )
+     (set-frame-font "Menlo-14" nil t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Stupid hacks
@@ -89,3 +99,5 @@
 
 ;; Make the emacs built-in shell have all our environment variables
 (exec-path-from-shell-initialize)
+;; Don't show that cryptic warning from magit
+(setq magit-last-seen-setup-instructions "1.4.0")
