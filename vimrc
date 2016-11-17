@@ -84,6 +84,7 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Source local plugins
 if filereadable(glob("~/.vimrc.plugins"))
