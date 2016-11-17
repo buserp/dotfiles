@@ -20,5 +20,3 @@ if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
 source $ZSH/oh-my-zsh.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
