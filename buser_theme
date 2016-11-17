@@ -1,8 +1,1 @@
-# Based on robbyrussell's default zsh theme:
-# https://github.com/robbyrussell/oh-my-zsh/wiki/themes#robbyrussell
-local ret_status="%(?:%{$fg_bold[green]%}%?:%{$fg_bold[red]%}%?)"
 PROMPT='${ret_status} %{$fg[yellow]%}%m %{$fg[magenta]%}%D{%b %e} %* %{$fg[cyan]%}%h %{$fg[blue]%}%~ %{$reset_color%}$(git_prompt_info)'
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
