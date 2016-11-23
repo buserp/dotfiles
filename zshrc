@@ -10,6 +10,11 @@ PROMPT="%(?:%{$fg[green]%}%?:%{$fg[red]%}%?)${ret_status} %{$fg[yellow]%}%n@%m %
 # Easy-ass git commits
 alias c="git commit -am"
 
+# WE CAN TAKE FROM BASH TOO
+if [ -f ~/.profile ]; then
+  source ~/.profile
+fi
+
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
@@ -29,3 +34,5 @@ setopt appendhistory autocd extendedglob nomatch
 unsetopt beep notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
