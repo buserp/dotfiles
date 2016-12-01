@@ -15,6 +15,15 @@ if [ -f ~/.profile ]; then
   source ~/.profile
 fi
 
+# Go forwards when we say forwards
+# And backwards when we say backwards
+bindkey '5D' emacs-backward-word
+bindkey '5C' emacs-forward-word
+bindkey '3D' emacs-backward-word
+bindkey '3C' emacs-forward-word
+bindkey '5~' kill-word
+bindkey '3~' kill-word
+
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
