@@ -10,6 +10,20 @@ PROMPT="%(?:%{$fg[green]%}%?:%{$fg[red]%}%?)${ret_status} %{$fg[yellow]%}%n@%m %
 # Easy-ass git commits
 alias c="git commit -am"
 
+# WE CAN TAKE FROM BASH TOO
+if [ -f ~/.profile ]; then
+  source ~/.profile
+fi
+
+# Go forwards when we say forwards
+# And backwards when we say backwards
+bindkey '5D' emacs-backward-word
+bindkey '5C' emacs-forward-word
+bindkey '3D' emacs-backward-word
+bindkey '3C' emacs-forward-word
+bindkey '5~' kill-word
+bindkey '3~' kill-word
+
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
@@ -27,7 +41,6 @@ HISTSIZE=10000
 SAVEHIST=100000
 setopt appendhistory autocd extendedglob nomatch
 unsetopt beep notify
-bindkey -v
 # End of lines configured by zsh-newuser-install
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
