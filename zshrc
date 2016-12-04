@@ -29,3 +29,5 @@ setopt appendhistory autocd extendedglob nomatch
 unsetopt beep notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
