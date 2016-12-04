@@ -10,11 +10,6 @@ PROMPT="%(?:%{$fg[green]%}%?:%{$fg[red]%}%?)${ret_status} %{$fg[yellow]%}%n@%m %
 # Easy-ass git commits
 alias c="git commit -am"
 
-# WE CAN TAKE FROM BASH TOO
-if [ -f ~/.profile ]; then
-  source ~/.profile
-fi
-
 # Go forwards when we say forwards
 # And backwards when we say backwards
 bindkey '5D' emacs-backward-word
