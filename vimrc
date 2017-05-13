@@ -20,6 +20,10 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set wildmenu      " Show complete command completion menu
 
+set smarttab      " Make the tab key insert spaces or tabs to go to next indent
+set expandtab     " Use spaces instead of tabs
+set shiftwidth=4  " Use four spaces as indent size, by default
+
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
@@ -66,6 +70,16 @@ nnoremap <Leader>c :set cursorcolumn!<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetype-specific stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Elm
+autocmd FileType elm setlocal shiftwidth=2
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
@@ -85,6 +99,7 @@ Plug 'google/vim-codefmt'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'ElmCast/elm-vim'
 
 " Source local plugins
 if filereadable(glob("~/.vimrc.plugins"))
@@ -112,6 +127,6 @@ command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Additional sources
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable(glob("~/.vimrc.local"))
+if filereadable("~/.vimrc.local")
     source ~/.vimrc.local
 endif
