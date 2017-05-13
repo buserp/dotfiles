@@ -101,6 +101,11 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'ElmCast/elm-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'dkarter/bullets.vim'
+Plug 'davinche/godown-vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'jpalardy/vim-slime'
 
 " Source local plugins
 if filereadable(glob("~/.vimrc.plugins"))
@@ -109,6 +114,10 @@ endif
 
 call plug#end()
 call glaive#Install()
+
+
+" Use tmux with vim-slime
+let g:slime_target = "tmux"
 
 " Colorscheme stuff
 let g:airline#extensions#tabline#enabled = 1 " Display all buffers when there's only one tab open
