@@ -28,7 +28,7 @@ set shiftwidth=4  " Use four spaces as indent size, by default
 set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use the system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " Clear the last search
 nnoremap <CR> :noh<CR>:pclose<CR><CR>
@@ -115,7 +115,6 @@ endif
 call plug#end()
 call glaive#Install()
 
-
 " Use tmux with vim-slime
 let g:slime_target = "tmux"
 
@@ -131,8 +130,6 @@ if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 endif
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Additional sources
