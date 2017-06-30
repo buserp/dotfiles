@@ -20,11 +20,15 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set wildmenu      " Show complete command completion menu
 
+set smarttab      " Make the tab key insert spaces or tabs to go to next indent
+set expandtab     " Use spaces instead of tabs
+set shiftwidth=4  " Use four spaces as indent size, by default
+
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use the system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " Clear the last search
 nnoremap <CR> :noh<CR>:pclose<CR><CR>
@@ -66,6 +70,16 @@ nnoremap <Leader>c :set cursorcolumn!<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetype-specific stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Elm
+autocmd FileType elm setlocal shiftwidth=2
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
@@ -86,6 +100,7 @@ Plug 'google/vim-codefmt'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'ElmCast/elm-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'davinche/godown-vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -98,7 +113,6 @@ endif
 
 call plug#end()
 call glaive#Install()
-
 
 " Use tmux with vim-slime
 let g:slime_target = "tmux"
@@ -115,12 +129,10 @@ if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 endif
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Additional sources
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable(glob("~/.vimrc.local"))
+if filereadable("~/.vimrc.local")
     source ~/.vimrc.local
 endif
