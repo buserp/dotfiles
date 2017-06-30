@@ -87,7 +87,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'pangloss/vim-javascript'
-Plug 'dkarter/bullets.vim'
 Plug 'davinche/godown-vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'jpalardy/vim-slime'
