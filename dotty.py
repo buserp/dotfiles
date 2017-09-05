@@ -92,12 +92,11 @@ def main():
     js = json.load(open(args.config))
     os.chdir(os.path.expanduser(os.path.abspath(os.path.dirname(args.config))))
 
+    pre_commands = js.get(u"pre_commands")
     directories = js.get(u"directories")
     links = js.get(u"link")
     copy = js.get(u"copy")
     commands = js.get(u"commands")
-    pre_commands = js.get(u"pre_commands")
-    pacman = js.get(u"pacman")
 
     if pre_commands: [run_command(command) for command in pre_commands]
 
@@ -108,13 +107,6 @@ def main():
     if copy: [copy_path(src, copy[src]) for src in copy]
 
     if commands: [run_command(command) for command in commands]
-
-    if pacman:
-        packages = u""
-        for package in pacman:
-            packages += package + u" "
-
-        run_command(u"sudo pacman -S "+packages)
 
     print u"Done!"
 

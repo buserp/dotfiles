@@ -1,7 +1,50 @@
-let mapleader="\<Space>"
-set nocompatible
-filetype plugin indent on
-syntax on
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The basics
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader="\<Space>" " Use spacebar as <Leader>
+set nocompatible " This is Vim, not Vi
+filetype plugin indent on " Enable filetype detection, plugin loading, indenting
+syntax enable " Enable syntax highlighting
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keybindings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" When pressing enter, clear search highlighting and close Preview window
+nnoremap <CR> :noh<CR>:pclose<CR><CR>
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Easy paste/nopaste toggle
+nnoremap <Leader>p :set paste!<CR>
+
+" Open file in same directory as current buffer
+nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Tab and buffer management
+nnoremap <Leader>w :bd<CR>
+nnoremap <Leader>W :BD<CR>
+nnoremap <Leader>t :tabnew<CR>
+nnoremap <Leader>h :bp<CR>
+nnoremap <Leader>l :bn<CR>
+nnoremap <Leader>j gt
+nnoremap <Leader>k gT
+
+" Toggle Gundo
+nnoremap <Leader>u :GundoToggle<CR>
+
+" Toggle highlighting current column
+nnoremap <Leader>c :set cursorcolumn!<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set number        " Turn line numbers on
 set mouse=a       " Enable the x-y tracking device
 set cursorline    " Underline where cursor is
@@ -9,7 +52,7 @@ set backspace=2   " Backspace deletes like most programs in insert mode
 
 set nobackup
 set nowritebackup
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set noswapfile    " Don't keep a swap file.
 
 set history=200   " remember 200 years ago
 set ruler         " show the cursor position all the time
@@ -30,109 +73,55 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " Use the system clipboard
 set clipboard=unnamed
 
-" Clear the last search
-nnoremap <CR> :noh<CR>:pclose<CR><CR>
-
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-" Easy paste/nopaste toggle
-nnoremap <Leader>P :set paste!<CR>
-
-" Open file in same directory as current buffer
-nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Tab and buffer management
-nnoremap <Leader>w :bd<CR>
-nnoremap <Leader>W :BD<CR>
-nnoremap <Leader>t :tabnew<CR>
-nnoremap <Leader>h :bp<CR>
-nnoremap <Leader>l :bn<CR>
-nnoremap <Leader>j gt
-nnoremap <Leader>k gT
-
-" Searching
-nnoremap <Leader>\ :Ag 
-nnoremap <Leader>n :cnext<CR>
-nnoremap <Leader>p :cprev<CR>
-
-" Autoformat that sh*t
-nnoremap <Leader>f :FormatCode<CR>
-
-" Toggle Gundo
-nnoremap <Leader>u :GundoToggle<CR>
-
-" Toggle highlighting current column
-nnoremap <Leader>c :set cursorcolumn!<CR>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Filetype-specific stuff
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Elm
-autocmd FileType elm setlocal shiftwidth=2
-let g:ycm_semantic_triggers = {
-     \ 'elm' : ['.'],
-     \}
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
+call plug#begin($HOME . '/.vim/plugged')
 """"""""""""""""""""""""""""""""""""
 
-Plug 'tpope/vim-commentary'
-Plug 'qpkorr/vim-bufkill'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tomasr/molokai'
-Plug 'tpope/vim-eunuch'
-Plug 'itchyny/vim-haskell-indent'
-Plug 'sjl/gundo.vim'
-Plug 'sjl/splice.vim'
-Plug 'google/vim-glaive'
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'ElmCast/elm-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'davinche/godown-vim'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'jpalardy/vim-slime'
+" Language support
+Plug 'ElmCast/elm-vim' " Elm Language support
+Plug 'pangloss/vim-javascript' " Better JavaScript support.
+Plug 'Glench/Vim-Jinja2-Syntax' " Jinja2 support.
+Plug 'PProvost/vim-ps1' " PowerShell support.
+" Editor enhancements
+Plug 'tpope/vim-commentary' " Comment stuff out.
+Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
+Plug 'tomasr/molokai' " Sublime Text 2 default colorscheme.
+Plug 'tpope/vim-eunuch' " Rename, Move, Delete, etc.
+Plug 'sjl/gundo.vim' " Visualize your undo history.
+Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
+" Integration with other tools
+Plug 'christoomey/vim-tmux-navigator' " Seamless tmux and vim pane navigation.
+Plug 'davinche/godown-vim' " Easy Markdown previews.
+Plug 'jpalardy/vim-slime' " Send text to a REPL, tmux pane, etc.
 
-" Source local plugins
-if filereadable(glob("~/.vimrc.plugins"))
-    source ~/.vimrc.plugins
+" Source additional plugins
+let s:additional_plugins = $HOME . '/.vimrc.plugins'
+if filereadable(s:additional_plugins)
+    execute 'source ' . s:additional_plugins
 endif
 
 call plug#end()
-call glaive#Install()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use tmux with vim-slime
 let g:slime_target = "tmux"
 
 " Colorscheme stuff
-let g:airline#extensions#tabline#enabled = 1 " Display all buffers when there's only one tab open
+colorscheme molokai
 set t_Co=256 " Required for molokai to work with 256-color terminal
 set t_ut=    " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging
-colorscheme molokai
-
-" The Silver Searcher
-" https://robots.thoughtbot.com/faster-grepping-in-vim
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
+" Make the currently selected split easier to see.
+hi Statusline ctermfg=white ctermbg=black
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Additional sources
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable("~/.vimrc.local")
-    source ~/.vimrc.local
+let s:vimrc_local = $HOME . '/.vimrc.local'
+if filereadable(s:vimrc_local)
+    execute 'source ' . s:vimrc_local
 endif
