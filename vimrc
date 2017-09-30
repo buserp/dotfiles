@@ -86,6 +86,7 @@ call plug#begin($HOME . '/.vim/plugged')
 " Language support
 Plug 'ElmCast/elm-vim' " Elm Language support
   let g:elm_format_autosave = 1
+  let g:netrw_list_hide= '^.*repl-temp-.*$'
 Plug 'pangloss/vim-javascript' " Better JavaScript support.
 Plug 'Glench/Vim-Jinja2-Syntax' " Jinja2 support.
 Plug 'PProvost/vim-ps1' " PowerShell support.
