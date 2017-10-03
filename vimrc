@@ -20,25 +20,29 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Easy paste/nopaste toggle
+" Toggle (p)aste
 nnoremap <Leader>p :set paste!<CR>
-
-" Open file in same directory as current buffer
+" (e)dit file in same directory as current buffer
 nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Tab and buffer management
+" Kill buffer and close (w)indow
 nnoremap <Leader>w :bd<CR>
+" Kill buffer without closing (W)indow
 nnoremap <Leader>W :BD<CR>
+" Create a new (t)ab
 nnoremap <Leader>t :tabnew<CR>
+" (h)ead backwards in the file list
 nnoremap <Leader>h :bp<CR>
+" (l)eap forwards in the file list
 nnoremap <Leader>l :bn<CR>
+" (j)ump upwards in the tab list
 nnoremap <Leader>j gt
+" (k)limb downwards in the tab list
 nnoremap <Leader>k gT
 
-" Toggle Gundo
+" Toggle the (u)ndo tree
 nnoremap <Leader>u :GundoToggle<CR>
 
-" Toggle highlighting current column
+" Toggle (c)olumn highlighting
 nnoremap <Leader>c :set cursorcolumn!<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -81,6 +85,8 @@ call plug#begin($HOME . '/.vim/plugged')
 
 " Language support
 Plug 'ElmCast/elm-vim' " Elm Language support
+  let g:elm_format_autosave = 1
+  let g:netrw_list_hide= '^.*repl-temp-.*$'
 Plug 'pangloss/vim-javascript' " Better JavaScript support.
 Plug 'Glench/Vim-Jinja2-Syntax' " Jinja2 support.
 Plug 'PProvost/vim-ps1' " PowerShell support.
@@ -96,6 +102,7 @@ Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux and vim pane navigation.
 Plug 'davinche/godown-vim' " Easy Markdown previews.
 Plug 'jpalardy/vim-slime' " Send text to a REPL, tmux pane, etc.
+  let g:slime_target = "tmux"
 
 " Source additional plugins
 let s:additional_plugins = $HOME . '/.vimrc.plugins'
@@ -106,17 +113,12 @@ endif
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin settings
+" Visual style
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Use tmux with vim-slime
-let g:slime_target = "tmux"
-
-" Colorscheme stuff
 colorscheme molokai
 set t_Co=256 " Required for molokai to work with 256-color terminal
 set t_ut=    " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging
-" Make the currently selected split easier to see.
 hi Statusline ctermfg=white ctermbg=black
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
