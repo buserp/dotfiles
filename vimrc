@@ -30,17 +30,20 @@ nnoremap <Leader>w :bd<CR>
 nnoremap <Leader>W :BD<CR>
 " Create a new (t)ab
 nnoremap <Leader>t :tabnew<CR>
-" (h)ead backwards in the file list
-nnoremap <Leader>h :bp<CR>
-" (l)eap forwards in the file list
-nnoremap <Leader>l :bn<CR>
-" (j)ump upwards in the tab list
-nnoremap <Leader>j gt
-" (k)limb downwards in the tab list
-nnoremap <Leader>k gT
+" (h)ead left in the tab list
+nnoremap <Leader>h gT
+" (l)eap right in the tab list
+nnoremap <Leader>l gt<CR>
+" (j)ump down in the file list
+nnoremap <Leader>j :bn<CR>
+" (k)limb up in the file list
+nnoremap <Leader>k :bp<CR>
 
 " Toggle the (u)ndo tree
 nnoremap <Leader>u :GundoToggle<CR>
+
+" Toggle the (n)erd (file explore) tree
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " Toggle (c)olumn highlighting
 nnoremap <Leader>c :set cursorcolumn!<CR>
@@ -97,6 +100,7 @@ Plug 'tomasr/molokai' " Sublime Text 2 default colorscheme.
 Plug 'tpope/vim-eunuch' " Rename, Move, Delete, etc.
 Plug 'sjl/gundo.vim' " Visualize your undo history.
 Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
+Plug 'scrooloose/nerdtree' " Browse filesystem nicely.
 " Integration with other tools
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux and vim pane navigation.
 Plug 'davinche/godown-vim' " Easy Markdown previews.
