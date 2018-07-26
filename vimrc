@@ -114,8 +114,8 @@ Plug 'scrooloose/nerdtree' " Browse filesystem nicely.
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux and vim pane navigation.
 Plug 'davinche/godown-vim' " Easy Markdown previews.
 Plug 'jpalardy/vim-slime' " Send text to a REPL, tmux pane, etc.
-Plug 'reedes/vim-pencil' " Use Vim to edit prose.
   let g:slime_target = "tmux"
+Plug 'reedes/vim-pencil' " Use Vim to edit prose.
 
 " Source additional plugins
 let s:additional_plugins = $HOME . '/.vimrc.plugins'
