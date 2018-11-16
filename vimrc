@@ -102,6 +102,8 @@ Plug 'tpope/vim-eunuch' " Rename, Move, Delete, etc.
 Plug 'sjl/gundo.vim' " Visualize your undo history.
 Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
 Plug 'scrooloose/nerdtree' " Browse filesystem nicely.
+Plug 'prabirshrestha/async.vim' " Use asynchronous code
+Plug 'prabirshrestha/vim-lsp' " Language Server Protocol
 " Integration with other tools
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux and vim pane navigation.
 Plug 'davinche/godown-vim' " Easy Markdown previews.
