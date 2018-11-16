@@ -102,6 +102,7 @@ Plug 'udalov/kotlin-vim' " Kotlin support.
 Plug 'toyamarinyon/vim-swift' " Swift support.
 Plug 'vim-scripts/proguard.vim' " ProGuard support.
 Plug 'dzeban/vim-log-syntax' " Colorized logfiles.
+Plug 'leafgarland/typescript-vim' " TypeScript support.
 " Editor enhancements
 Plug 'tpope/vim-commentary' " Comment stuff out.
 Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
