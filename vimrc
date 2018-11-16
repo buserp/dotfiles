@@ -74,6 +74,9 @@ set smarttab      " Make the tab key insert spaces or tabs to go to next indent
 set expandtab     " Use spaces instead of tabs
 set shiftwidth=4  " Use four spaces as indent size, by default
 
+set ignorecase    " Do case-insensitive searching...
+set smartcase     " ...unless the search contains capital letters
+
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
@@ -94,6 +97,11 @@ Plug 'pangloss/vim-javascript' " Better JavaScript support.
 Plug 'Glench/Vim-Jinja2-Syntax' " Jinja2 support.
 Plug 'PProvost/vim-ps1' " PowerShell support.
 Plug 'elixir-editors/vim-elixir' " Elixir support
+Plug 'jvirtanen/vim-cocoapods' " CocoaPods support.
+Plug 'udalov/kotlin-vim' " Kotlin support.
+Plug 'toyamarinyon/vim-swift' " Swift support.
+Plug 'vim-scripts/proguard.vim' " ProGuard support.
+Plug 'dzeban/vim-log-syntax' " Colorized logfiles.
 " Editor enhancements
 Plug 'tpope/vim-commentary' " Comment stuff out.
 Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
@@ -109,6 +117,7 @@ Plug 'christoomey/vim-tmux-navigator' " Seamless tmux and vim pane navigation.
 Plug 'davinche/godown-vim' " Easy Markdown previews.
 Plug 'jpalardy/vim-slime' " Send text to a REPL, tmux pane, etc.
   let g:slime_target = "tmux"
+Plug 'reedes/vim-pencil' " Use Vim to edit prose.
 
 " Source additional plugins
 let s:additional_plugins = $HOME . '/.vimrc.plugins'
