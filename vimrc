@@ -74,6 +74,9 @@ set smarttab      " Make the tab key insert spaces or tabs to go to next indent
 set expandtab     " Use spaces instead of tabs
 set shiftwidth=4  " Use four spaces as indent size, by default
 
+set ignorecase    " Do case-insensitive searching...
+set smartcase     " ...unless the search contains capital letters
+
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
@@ -95,6 +98,12 @@ Plug 'Glench/Vim-Jinja2-Syntax' " Jinja2 support.
 Plug 'PProvost/vim-ps1' " PowerShell support.
 Plug 'elixir-editors/vim-elixir' " Elixir support
 Plug 'chr4/nginx.vim' " NGINX configuration support
+Plug 'jvirtanen/vim-cocoapods' " CocoaPods support.
+Plug 'udalov/kotlin-vim' " Kotlin support.
+Plug 'toyamarinyon/vim-swift' " Swift support.
+Plug 'vim-scripts/proguard.vim' " ProGuard support.
+Plug 'dzeban/vim-log-syntax' " Colorized logfiles.
+Plug 'leafgarland/typescript-vim' " TypeScript support.
 " Editor enhancements
 Plug 'tpope/vim-commentary' " Comment stuff out.
 Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
@@ -104,11 +113,14 @@ Plug 'sjl/gundo.vim' " Visualize your undo history.
 Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
 Plug 'scrooloose/nerdtree' " Browse filesystem nicely.
 Plug 'jceb/vim-hier' " Highlight quickfix entries.
+Plug 'prabirshrestha/async.vim' " Use asynchronous code
+Plug 'prabirshrestha/vim-lsp' " Language Server Protocol
 " Integration with other tools
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux and vim pane navigation.
 Plug 'davinche/godown-vim' " Easy Markdown previews.
 Plug 'jpalardy/vim-slime' " Send text to a REPL, tmux pane, etc.
   let g:slime_target = "tmux"
+Plug 'reedes/vim-pencil' " Use Vim to edit prose.
 
 " Source additional plugins
 let s:additional_plugins = $HOME . '/.vimrc.plugins'
