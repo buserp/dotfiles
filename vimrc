@@ -94,6 +94,7 @@ Plug 'pangloss/vim-javascript' " Better JavaScript support.
 Plug 'Glench/Vim-Jinja2-Syntax' " Jinja2 support.
 Plug 'PProvost/vim-ps1' " PowerShell support.
 Plug 'elixir-editors/vim-elixir' " Elixir support
+Plug 'chr4/nginx.vim' " NGINX configuration support
 " Editor enhancements
 Plug 'tpope/vim-commentary' " Comment stuff out.
 Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
@@ -102,6 +103,7 @@ Plug 'tpope/vim-eunuch' " Rename, Move, Delete, etc.
 Plug 'sjl/gundo.vim' " Visualize your undo history.
 Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
 Plug 'scrooloose/nerdtree' " Browse filesystem nicely.
+Plug 'jceb/vim-hier' " Highlight quickfix entries.
 " Integration with other tools
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux and vim pane navigation.
 Plug 'davinche/godown-vim' " Easy Markdown previews.

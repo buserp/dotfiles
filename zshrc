@@ -5,7 +5,7 @@ autoload -Uz colors && colors
 # Based on robbyrussell's default zsh theme:
 # https://github.com/robbyrussell/oh-my-zsh/wiki/themes#robbyrussell
 local ret_status=""
-PROMPT="%(?:%{$fg[green]%}%?:%{$fg[red]%}%?)${ret_status} %{$fg[yellow]%}%n@%m %{$fg[magenta]%}%D{%b %e} %* %{$fg[cyan]%}%h %{$fg[blue]%}%~ %{$reset_color%}"
+PROMPT="%(?:%{$fg[green]%}%?:%{$fg[red]%}%?)${ret_status} %{$fg[yellow]%}%n@%m %{$fg[magenta]%}%D{%b %e} %* %{$fg[blue]%}%h %{$fg[cyan]%}%~ %{$reset_color%}"
 
 # Easy-ass git commits
 alias c="git commit -am"
