@@ -12,12 +12,25 @@ alias c="git commit -am"
 
 # Go forwards when we say forwards
 # And backwards when we say backwards
-bindkey '5D' emacs-backward-word
-bindkey '5C' emacs-forward-word
-bindkey '3D' emacs-backward-word
-bindkey '3C' emacs-forward-word
+bindkey '5C' forward-word
+bindkey '5D' backward-word
+bindkey '^[[1;5C' forward-word  # Ctrl-right
+bindkey '^[[1;5D' backward-word # Ctrl-left
+bindkey '3D' backward-word
+bindkey '3C' forward-word
+bindkey '^[[1;3C' forward-word  # Alt-right
+bindkey '^[[1;3D' backward-word # Alt-left
+bindkey '^H' backward-kill-word # Ctrl-backspace
+bindkey '^[[3;5~' kill-word     # Ctrl-delete
+bindkey '^[[3;3~' kill-word     # Alt-delete
 bindkey '5~' kill-word
 bindkey '3~' kill-word
+
+readonly PHILIPGLASS="     hi   phi. .      phi llipe glass
+
+ m    m m y name is dan and i had a         q question i wa  s wo  ndering what di--- what do you i mean, what d d do you                       think of                    this b *oh wait hold on     ok   oh dang    o. . .                   oh ok                          ok i got it                            here ,  um ,   wh at do y                                    ou                       thi n             k                    of            thtis - thi-s be  be at
+
+ *808 clap snare boing boing ba boing clap snare snare baiessese*"
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
