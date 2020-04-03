@@ -254,6 +254,7 @@ Plug 'leafgarland/typescript-vim' " TypeScript support.
 Plug 'neovimhaskell/haskell-vim' " Haskell support.
 Plug 'itchyny/vim-haskell-indent' " Haskell indentation support.
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Golang support.
+Plug 'supercollider/scvim' " SuperCollider support.
 " Editor enhancements
 Plug 'tpope/vim-commentary' " Comment stuff out.
 Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
