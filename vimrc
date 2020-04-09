@@ -76,10 +76,6 @@ set smarttab          " Make the tab key insert spaces or tabs to go to next ind
 set history=200       " remember 200 years ago
 set clipboard=unnamed " Use the system clipboard.
 
-" Spaces or tabs?
-set expandtab     " Use spaces instead of tabs
-set shiftwidth=4  " Use four spaces as indent size, by default
-
 " Searching.
 set ignorecase    " Do case-insensitive searching...
 set smartcase     " ...unless the search contains capital letters
@@ -112,6 +108,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Golang support.
 Plug 'supercollider/scvim' " SuperCollider support.
 " Editor enhancements
 Plug 'tpope/vim-commentary' " Comment stuff out.
+Plug 'tpope/vim-sleuth' " Autodetect shiftwidth and tabs n stuff.
 Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
 Plug 'tomasr/molokai' " Sublime Text 2 default colorscheme.
 Plug 'tpope/vim-eunuch' " Rename, Move, Delete, etc.
