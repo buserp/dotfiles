@@ -1,5 +1,6 @@
 # Yes. I don't even know why. But yes.
 TERM=xterm-256color
+export EDITOR=vim
 
 autoload -Uz colors && colors
 # Based on robbyrussell's default zsh theme:
