@@ -2,10 +2,6 @@
 TERM=xterm-256color
 export EDITOR=vim
 
-# Enable fzf bindings and completions.
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-
 autoload -Uz colors && colors
 # Based on robbyrussell's default zsh theme:
 # https://github.com/robbyrussell/oh-my-zsh/wiki/themes#robbyrussell

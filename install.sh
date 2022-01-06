@@ -1,7 +1,7 @@
 set -euf -o pipefail
 
 function install_prereqs() {
-	sudo apt install curl vim git fzf zsh
+	sudo apt install curl vim git zsh tmux
 }
 
 function setup_vim() {
@@ -17,9 +17,9 @@ function setup_links() {
 
 
 function main() {
+	setup_links
 	install_prereqs
 	setup_vim
-	setup_links
 }
 
 main
