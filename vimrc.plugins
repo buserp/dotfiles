@@ -1,3 +1,8 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" My plugins!
+" Uncomment these as necessary.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Language support
 " Plug 'davidhalter/jedi-vim' "Python
 " Plug 'ElmCast/elm-vim' " Elm
