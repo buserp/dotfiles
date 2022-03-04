@@ -3,6 +3,10 @@ TERM=xterm-256color
 export EDITOR=vim
 
 autoload -Uz colors && colors
+
+# Case insensitive tab completion.
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Based on robbyrussell's default zsh theme:
 # https://github.com/robbyrussell/oh-my-zsh/wiki/themes#robbyrussell
 local ret_status=""
