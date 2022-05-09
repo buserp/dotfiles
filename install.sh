@@ -2,7 +2,7 @@ set -euf -o pipefail
 
 function install_prereqs() {
 	if command -v "apt-get"; then
-		sudo apt-get install curl vim git zsh
+		sudo apt-get install curl vim git zsh xclip
 	fi
 }
 
@@ -26,11 +26,16 @@ function setup_files() {
 	fi
 }
 
+function post_install() {
+	"${HOME}/.tmux/plugins/tpm/bin/install_plugins"
+}
+
 
 function main() {
 	install_prereqs
 	setup_files
 	setup_vim
+	post_install
 }
 
 main
