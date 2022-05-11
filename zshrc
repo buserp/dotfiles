@@ -15,6 +15,8 @@ PROMPT="%(?:%{$fg[green]%}%?:%{$fg[red]%}%?)${ret_status} %{$fg[yellow]%}%n@%m %
 # Easy-ass git commits
 alias c="git commit -am"
 
+# Use Emacs-style bindings by default.
+bindkey -e
 
 # Go forwards when we say forwards
 # And backwards when we say backwards

@@ -4,6 +4,9 @@ function install_prereqs() {
 	if command -v "apt-get"; then
 		sudo apt-get install curl vim git zsh xclip tmux
 	fi
+	if [[ -z ~/.tmux/plugins/tpm ]]; then
+		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	fi
 }
 
 function setup_vim() {
