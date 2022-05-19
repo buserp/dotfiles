@@ -31,6 +31,7 @@ bindkey '^[[3;5~' kill-word     # Ctrl-delete
 bindkey '^[[3;3~' kill-word     # Alt-delete
 bindkey '5~' kill-word
 bindkey '3~' kill-word
+bindkey '^R' history-incremental-search-backward # Tmux sometimes breaks Ctrl-R
 
 readonly PHILIPGLASS="     hi   phi. .      phi llipe glass
 
