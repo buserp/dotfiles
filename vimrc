@@ -71,11 +71,11 @@ set laststatus=2  " Always display the status line
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace.
 
 " Enhancements.
-set autowrite         " Automatically :write before running commands
-set smarttab          " Make the tab key insert spaces or tabs to go to next indent
-set history=200       " remember 200 years ago
-set clipboard=unnamed " Use the system clipboard.
-set wildmenu          " Show a menu when tab-completing commands.
+set autowrite             " Automatically :write before running commands
+set smarttab              " Make the tab key insert spaces or tabs to go to next indent
+set history=200           " remember 200 years ago
+set clipboard=unnamedplus " Use the system clipboard.
+set wildmenu              " Show a menu when tab-completing commands.
 
 " Searching.
 set ignorecase    " Do case-insensitive searching...
