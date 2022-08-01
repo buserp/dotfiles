@@ -74,13 +74,19 @@ set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace.
 set autowrite             " Automatically :write before running commands
 set smarttab              " Make the tab key insert spaces or tabs to go to next indent
 set history=200           " remember 200 years ago
-set clipboard=unnamedplus " Use the system clipboard.
 set wildmenu              " Show a menu when tab-completing commands.
 
 " Searching.
 set ignorecase    " Do case-insensitive searching...
 set smartcase     " ...unless the search contains capital letters
 set incsearch     " do incremental searching
+
+" Compatability
+if &term =~ "xterm" " Fix for cursor block in WSL.
+    let &t_SI = "\<Esc>[6 q"
+    let &t_SR = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[2 q"
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
