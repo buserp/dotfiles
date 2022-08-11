@@ -1,3 +1,4 @@
+#!/bin/bash
 set -euf -o pipefail
 
 function install_prereqs() {
@@ -30,6 +31,7 @@ function setup_files() {
 }
 
 function post_install() {
+	tmux source ~/.tmux.conf
 	"${HOME}/.tmux/plugins/tpm/bin/install_plugins"
 }
 
