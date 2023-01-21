@@ -1,6 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The basics
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+scriptencoding utf-8
+set encoding=utf-8
 
 let mapleader="\<Space>" " Use spacebar as <Leader>
 set nocompatible " This is Vim, not Vi
