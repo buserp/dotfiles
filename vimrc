@@ -71,6 +71,10 @@ set showcmd       " display incomplete commands
 set hlsearch      " highlight search results
 set laststatus=2  " Always display the status line
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace.
+" Set font for, e.g., gVim
+if has("gui_running")
+  set guifont=Consolas:h12
+endif
 
 " Enhancements.
 set autowrite             " Automatically :write before running commands
