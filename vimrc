@@ -109,8 +109,10 @@ Plug 'jceb/vim-hier' " Highlight quickfix entries.
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux and vim pane navigation.
 Plug 'jpalardy/vim-slime' " Send text to a REPL, tmux pane, etc.
   let g:slime_target = "tmux"
-Plug 'Yggdroot/LeaderF'
-  let g:Lf_WindowPosition = 'popup'
+" Disabled because it requires Python-compatible Vim
+" If you have it, it can be useful!
+" Plug 'Yggdroot/LeaderF'
+"   let g:Lf_WindowPosition = 'popup'
 
 " Source additional plugins
 let s:additional_plugins = $HOME . '/.vimrc.plugins'
