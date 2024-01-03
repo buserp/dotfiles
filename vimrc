@@ -71,10 +71,14 @@ set showcmd       " display incomplete commands
 set hlsearch      " highlight search results
 set laststatus=2  " Always display the status line
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace.
-" Set font for, e.g., gVim
-if has("gui_running")
+if has("gui_running") " Set font for, e.g., gVim
   set guifont=Consolas:h12
 endif
+
+set tabstop=4     " Set the width of a tab character to 4 spaces
+set shiftwidth=4
+set softtabstop=4
+set expandtab     " Convert tabs to spaces
 
 " Enhancements.
 set smarttab              " Make the tab key insert spaces or tabs to go to next indent
