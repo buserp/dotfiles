@@ -77,7 +77,6 @@ if has("gui_running")
 endif
 
 " Enhancements.
-set autowrite             " Automatically :write before running commands
 set smarttab              " Make the tab key insert spaces or tabs to go to next indent
 set history=200           " remember 200 years ago
 set wildmenu              " Show a menu when tab-completing commands.
@@ -87,12 +86,13 @@ set ignorecase    " Do case-insensitive searching...
 set smartcase     " ...unless the search contains capital letters
 set incsearch     " do incremental searching
 
-" Compatability
+" Compatability.
 if &term =~ "xterm" " Fix for cursor block in WSL.
     let &t_SI = "\<Esc>[6 q"
     let &t_SR = "\<Esc>[3 q"
     let &t_EI = "\<Esc>[2 q"
 endif
+set t_Co=256 " Required for colorschemes to work with 256-color terminals
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -105,6 +105,7 @@ Plug 'tpope/vim-commentary' " Comment stuff out.
 Plug 'tpope/vim-sleuth' " Autodetect shiftwidth and tabs n stuff.
 Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
 Plug 'tomasr/molokai' " Sublime Text 2 default colorscheme.
+Plug 'altercation/vim-colors-solarized' " Solarized colorscheme
 Plug 'tpope/vim-eunuch' " Rename, Move, Delete, etc.
 Plug 'mbbill/undotree' " UndoTree, visualizes Vim's undo tree.
 Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
@@ -130,10 +131,9 @@ call plug#end()
 " Visual style
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme molokai
-set t_Co=256 " Required for molokai to work with 256-color terminal
-set t_ut=    " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging
-hi Statusline ctermfg=white ctermbg=black
+let g:solarized_termcolors=256 " Required for solarized with 256-color terminals
+set background=dark
+colorscheme solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Additional sources
