@@ -108,7 +108,7 @@ call plug#begin($HOME . '/.vim/plugged')
 Plug 'tpope/vim-commentary' " Comment stuff out.
 Plug 'tpope/vim-sleuth' " Autodetect shiftwidth and tabs n stuff.
 Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
-Plug 'tomasr/molokai' " Sublime Text 2 default colorscheme.
+Plug 'phanviet/vim-monokai-pro' "TextMate colorscheme.
 Plug 'tpope/vim-eunuch' " Rename, Move, Delete, etc.
 Plug 'mbbill/undotree' " UndoTree, visualizes Vim's undo tree.
 Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
@@ -134,10 +134,9 @@ call plug#end()
 " Visual style
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme molokai
-set t_Co=256 " Required for molokai to work with 256-color terminal
+set termguicolors " Use 24-bit color.
+colorscheme monokai_pro
 set t_ut=    " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging
-hi Statusline ctermfg=white ctermbg=black
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Additional sources
