@@ -1,7 +1,0 @@
-# .helix/languages.toml
-[[language]]
-name = "c"
-
-[language-server.clangd.config]
-fallbackFlags = ["-IC:\\Users\\paul\\Utilities\\gbdk\\include",
-                 "-ferror-limit=0"]
