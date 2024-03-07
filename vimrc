@@ -4,7 +4,7 @@
 scriptencoding utf-8
 set encoding=utf-8
 
-let mapleader="\<Space>" " Use spacebar as <Leader>
+let mapleader=" " " Use spacebar as <Leader>
 set nocompatible " This is Vim, not Vi
 filetype plugin indent on " Enable filetype detection, plugin loading, indenting
 syntax enable " Enable syntax highlighting
@@ -71,8 +71,13 @@ set showcmd       " display incomplete commands
 set hlsearch      " highlight search results
 set laststatus=2  " Always display the status line
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace.
+
 if has("gui_running") " Set font for, e.g., gVim
   set guifont=Consolas:h12
+endif
+
+if exists('g:neovide') " Neovide-specific options
+  nnoremap <F11> :let g:neovide_fullscreen = !g:neovide_fullscreen<CR>
 endif
 
 set tabstop=4     " Set the width of a tab character to 4 spaces
@@ -83,7 +88,7 @@ set expandtab     " Convert tabs to spaces
 " Enhancements.
 set autowriteall          " Automatically :write before running commands
 set smarttab              " Make the tab key insert spaces or tabs to go to next indent
-set history=200           " remember 200 years ago
+set history=10000           " remember 10000 years ago
 set wildmenu              " Show a menu when tab-completing commands.
 
 " Searching.
@@ -104,29 +109,22 @@ endif
 call plug#begin($HOME . '/.vim/plugged')
 """"""""""""""""""""""""""""""""""""
 
-" Editor enhancements.
-Plug 'tpope/vim-commentary' " Comment stuff out.
-Plug 'tpope/vim-sleuth' " Autodetect shiftwidth and tabs n stuff.
-Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
-Plug 'phanviet/vim-monokai-pro' "TextMate colorscheme.
-Plug 'tpope/vim-eunuch' " Rename, Move, Delete, etc.
-Plug 'mbbill/undotree' " UndoTree, visualizes Vim's undo tree.
-Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
-Plug 'scrooloose/nerdtree' " Browse filesystem nicely.
-Plug 'jceb/vim-hier' " Highlight quickfix entries.
 Plug 'christoomey/vim-tmux-navigator' " Seamless tmux and vim pane navigation.
+Plug 'jceb/vim-hier' " Highlight quickfix entries.
 Plug 'jpalardy/vim-slime' " Send text to a REPL, tmux pane, etc.
   let g:slime_target = "tmux"
+Plug 'mbbill/undotree' " UndoTree, visualizes Vim's undo tree.
+Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
+Plug 'phanviet/vim-monokai-pro' " TextMate colorscheme.
+Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
+Plug 'scrooloose/nerdtree' " Browse filesystem nicely.
+Plug 'tpope/vim-commentary' " Comment stuff out.
+Plug 'tpope/vim-eunuch' " Rename, Move, Delete, etc.
+Plug 'tpope/vim-sleuth' " Autodetect shiftwidth and tabs n stuff.
 " Disabled because it requires Python-compatible Vim
 " If you have it, it can be useful!
-" Plug 'Yggdroot/LeaderF'
-"   let g:Lf_WindowPosition = 'popup'
-
-" Source additional plugins
-let s:additional_plugins = $HOME . '/.vimrc.plugins'
-if filereadable(s:additional_plugins)
-    execute 'source ' . s:additional_plugins
-endif
+Plug 'Yggdroot/LeaderF'
+  let g:Lf_WindowPosition = 'popup'
 
 call plug#end()
 
