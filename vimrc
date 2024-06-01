@@ -115,6 +115,7 @@ Plug 'jpalardy/vim-slime' " Send text to a REPL, tmux pane, etc.
   let g:slime_target = "tmux"
 Plug 'mbbill/undotree' " UndoTree, visualizes Vim's undo tree.
 Plug 'nathanaelkane/vim-indent-guides' " Indentation guides.
+Plug 'jnurmine/Zenburn' " Zenburn colorscheme
 Plug 'phanviet/vim-monokai-pro' " TextMate colorscheme.
 Plug 'qpkorr/vim-bufkill' " Delete buffers without closing splits.
 Plug 'scrooloose/nerdtree' " Browse filesystem nicely.
@@ -133,7 +134,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set termguicolors " Use 24-bit color.
-colorscheme monokai_pro
+colorscheme zenburn
 set t_ut=    " http://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
