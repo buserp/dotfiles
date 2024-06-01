@@ -124,8 +124,8 @@ Plug 'tpope/vim-eunuch' " Rename, Move, Delete, etc.
 Plug 'tpope/vim-sleuth' " Autodetect shiftwidth and tabs n stuff.
 " Disabled because it requires Python-compatible Vim
 " If you have it, it can be useful!
-Plug 'Yggdroot/LeaderF'
-  let g:Lf_WindowPosition = 'popup'
+" Plug 'Yggdroot/LeaderF'
+"   let g:Lf_WindowPosition = 'popup'
 
 call plug#end()
 
