@@ -10,7 +10,7 @@ PathVariant = namedtuple('PathVariant', ['file_path', 'nix', 'win'])
 
 VIM_PLUGGED_URL = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 VIM_PLUGGED_PATH = PathVariant('plug.vim',
-                       nix=Path(Path.home(), '.config', 'nvim', 'autoload', 'plug.vim'),
+                       nix=Path(Path.home(), '.vim', 'autoload', 'plug.vim'),
                        win=Path(Path.home(), 'AppData', 'Local', 'nvim', 'autoload', 'plug.vim')
 )
 
@@ -52,7 +52,7 @@ def make_links(links: List[Tuple[Path, Path]]):
 
 def main():
   variant_index = None
-  if platform == 'linux' or platform == 'linux2':
+  if platform == 'linux' or platform == 'linux2' or platform == 'darwin':
     variant_index = 1
   elif platform == 'win32':
     variant_index = 2
