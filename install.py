@@ -22,7 +22,7 @@ LINKS = [
       nix=Path(Path.home(), '.config', 'nvim', 'init.vim'),
       win=Path(Path.home(), 'AppData', 'Local', 'nvim', 'init.vim')),
     PathVariant('tmux.conf',
-      nix=Path(Path.home(), 'tmux.conf'),
+      nix=Path(Path.home(), '.tmux.conf'),
       win=None),
     PathVariant('zshrc',
       nix=Path(Path.home(), '.zshrc'),
